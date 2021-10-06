@@ -10,35 +10,81 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
+    @State private var isAdding = false
+    
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        NavigationView {
+            
+            List {
+                ForEach(items) { item in
+                    HStack {
+                        Text(item.name ?? "Nada")
+                        Text(" \(item.quantitty)")
+                        
+                        
+                    }
+                }
+                .onDelete(perform: deleteItems)
             }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
+            .navigationTitle("Listinha de Pulso")
+            .toolbar(content: {
+                
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    
+//                    NavigationLink(destination: AddingItemView(), isActive: $isAdding) {
+                        
+                        Button(action: {
+                            isAdding = true
+//                            addItem()
+                        }) {
+                            Image(systemName: "plus")
+                                .imageScale(.large)
+                                .foregroundColor(.green)
+                        }
+                        .sheet(isPresented: $isAdding) {
+                            AddingItemView()
+                        }
+//                    }
+                })
+                
+            })
+            
+            
         }
     }
-
+    
+    
+    //    var body: some View {
+    //        List {
+    //            ForEach(items) { item in
+    //                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+    //            }
+    //            .onDelete(perform: deleteItems)
+    //        }
+    //        .toolbar {
+    //            #if os(iOS)
+    //            EditButton()
+    //            #endif
+    //
+    //            Button(action: addItem) {
+    //                Label("Add Item", systemImage: "plus")
+    //            }
+    //        }
+    //    }
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
+            newItem.name = "Produtinho"
+            newItem.quantitty = Int64.random(in: 1...10)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -49,11 +95,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {

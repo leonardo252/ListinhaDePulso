@@ -13,6 +13,7 @@
 		A780B63826C8A4B60022920D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A780B63726C8A4B60022920D /* Preview Assets.xcassets */; };
 		A780B63A26C8A4B60022920D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780B63926C8A4B60022920D /* Persistence.swift */; };
 		A780B63D26C8A4B60022920D /* ListinhaDePulso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A780B63B26C8A4B60022920D /* ListinhaDePulso.xcdatamodeld */; };
+		A780B64A26C8B7E30022920D /* AddingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780B64926C8B7E30022920D /* AddingItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A780B63926C8A4B60022920D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A780B63C26C8A4B60022920D /* ListinhaDePulso.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListinhaDePulso.xcdatamodel; sourceTree = "<group>"; };
 		A780B63E26C8A4B60022920D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A780B64926C8B7E30022920D /* AddingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,12 @@
 			isa = PBXGroup;
 			children = (
 				A780B63026C8A4B40022920D /* ListinhaDePulsoApp.swift */,
+				A780B64926C8B7E30022920D /* AddingItemView.swift */,
 				A780B63226C8A4B40022920D /* ContentView.swift */,
 				A780B63426C8A4B60022920D /* Assets.xcassets */,
 				A780B63926C8A4B60022920D /* Persistence.swift */,
 				A780B63E26C8A4B60022920D /* Info.plist */,
-				A780B63B26C8A4B60022920D /* ListinhaDePulso.xcdatamodeld */,
+				A780B64826C8A7A90022920D /* Model */,
 				A780B63626C8A4B60022920D /* Preview Content */,
 			);
 			path = ListinhaDePulso;
@@ -73,6 +76,14 @@
 				A780B63726C8A4B60022920D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A780B64826C8A7A90022920D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A780B63B26C8A4B60022920D /* ListinhaDePulso.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			files = (
 				A780B63D26C8A4B60022920D /* ListinhaDePulso.xcdatamodeld in Sources */,
 				A780B63A26C8A4B60022920D /* Persistence.swift in Sources */,
+				A780B64A26C8B7E30022920D /* AddingItemView.swift in Sources */,
 				A780B63326C8A4B40022920D /* ContentView.swift in Sources */,
 				A780B63126C8A4B40022920D /* ListinhaDePulsoApp.swift in Sources */,
 			);
@@ -205,7 +217,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -260,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
